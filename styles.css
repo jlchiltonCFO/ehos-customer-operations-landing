@@ -1,73 +1,89 @@
 :root {
   color-scheme: light;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f6f6f8;
-  color: #08080c;
+  background: #f6f7fa;
+  color: #182235;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
+  --muted: #596477;
+  --accent: #2455d6;
+  --line: #dce2ed;
 }
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 280px; }
-.page-shell {
-  min-height: 100vh;
-  min-height: 100svh;
-  display: grid;
-  place-items: center;
-  padding: 32px 16px;
+body { margin: 0; }
+a { color: inherit; }
+.wrap { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
+.skip-link { position: absolute; top: -80px; left: 16px; z-index: 10; background: white; padding: 12px; }
+.skip-link:focus { top: 12px; }
+a:focus-visible { outline: 3px solid #2455d6; outline-offset: 5px; }
+.site-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 26px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; color: white; background: #182235; font-size: 14px; font-weight: 750; }
+.brand strong { display: block; font-size: 15px; letter-spacing: .02em; }
+.brand-subtitle { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+.nav-link { font-size: 13px; font-weight: 600; text-decoration: none; padding: 10px 0 10px 12px; }
+.nav-link span { padding-left: 12px; }
+.nav-link:hover, .text-link:hover { color: var(--accent); }
+.hero { display: grid; grid-template-columns: 1.35fr 1fr; gap: 72px; align-items: center; padding-block: 84px 88px; }
+.eyebrow { font-size: 11px; font-weight: 750; letter-spacing: .13em; color: var(--accent); margin: 0 0 20px; line-height: 1.6; }
+h1 { font-size: clamp(40px, 4.5vw, 62px); letter-spacing: -.05em; line-height: 1.06; margin: 0 0 26px; font-weight: 650; }
+.hero-intro { font-size: 17px; line-height: 1.8; color: var(--muted); margin: 0 0 28px; max-width: 550px; }
+.text-link { display: inline-flex; align-items: center; gap: 16px; font-size: 13px; font-weight: 650; text-decoration: none; padding-block: 8px; }
+.mission-card { border: 1px solid #d7e1f5; border-radius: 20px; background: #eaf0fc; padding: 34px; }
+.mission-symbol { display: inline-grid; place-items: center; width: 48px; height: 48px; font-size: 28px; background: #d9e5ff; border-radius: 14px; color: var(--accent); margin-bottom: 32px; }
+.mission-card .eyebrow { margin-bottom: 12px; }
+h2 { font-size: clamp(26px, 2.7vw, 34px); letter-spacing: -.035em; line-height: 1.2; font-weight: 600; margin: 0 0 18px; }
+.mission-card h2 { font-size: 29px; }
+.mission-card p:not(.eyebrow) { font-size: 14px; line-height: 1.8; color: #4c5d77; }
+.mission-footer { display: flex; align-items: center; gap: 8px; border-top: 1px solid #cfdcf3; margin-top: 26px; padding-top: 20px; font-size: 11px; color: #43587b; }
+.mission-footer span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.role-section { background: white; border-block: 1px solid var(--line); padding-block: 66px; }
+.role-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; }
+.role-copy p { font-size: 15px; line-height: 1.85; margin: 0 0 18px; color: var(--muted); }
+.role-copy p:last-child { margin-bottom: 0; }
+.focus-section { padding-block: 76px 70px; }
+.section-heading { max-width: 650px; margin-bottom: 34px; }
+.section-heading .eyebrow { margin-bottom: 12px; }
+.section-heading > p:last-child:not(.eyebrow) { color: var(--muted); line-height: 1.8; font-size: 15px; }
+.focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.focus-card { padding: 28px; background: white; border: 1px solid var(--line); border-radius: 14px; }
+.card-number { color: #778aa9; font-size: 12px; letter-spacing: .06em; }
+h3 { font-size: 17px; letter-spacing: -.02em; font-weight: 650; margin: 22px 0 12px; }
+.focus-card p { font-size: 14px; line-height: 1.8; color: var(--muted); margin: 0; }
+.approach-section { border-top: 1px solid var(--line); padding-block: 56px 64px; }
+.steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; padding: 0; margin: 0; }
+.steps li { counter-increment: step; border-top: 2px solid #b6c7e9; padding-top: 18px; }
+.steps li::before { content: "0" counter(step); font-size: 12px; font-weight: 650; color: var(--accent); }
+.steps h3 { margin-top: 16px; }
+.steps p { font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0; }
+.team-section { background: #182235; color: white; padding: 36px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.team-section .eyebrow { color: #acbfff; margin-bottom: 10px; }
+.team-section h2 { font-size: 26px; margin-bottom: 10px; }
+.team-section p:last-child { color: #c0cbdd; font-size: 14px; line-height: 1.7; margin: 0; }
+.primary-action { display: inline-flex; justify-content: center; align-items: center; gap: 14px; flex-shrink: 0; min-height: 48px; padding: 14px 20px; border-radius: 8px; background: white; color: #182235; text-decoration: none; font-size: 13px; font-weight: 650; }
+.primary-action:hover { background: #e5edff; }
+.site-footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 32px; font-size: 11px; color: var(--muted); line-height: 1.7; }
+.site-footer strong { color: #182235; }
+@media (max-width: 900px) {
+  .hero { gap: 32px; padding-block: 56px; }
+  .mission-card { padding: 26px; }
+  .role-layout { gap: 36px; }
+  .focus-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-section { align-items: flex-start; flex-direction: column; }
 }
-.login-card { width: min(100%, 384px); text-align: center; }
-.brand { margin-bottom: 32px; }
-.brand h1 { margin: 0; font-size: 20px; line-height: 28px; font-weight: 600; }
-.brand p { margin: 4px 0 0; color: #6a6a81; font-size: 14px; line-height: 20px; }
-.access-panel {
-  padding: 24px;
-  border: 1px solid rgba(8, 8, 12, .04);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, .72);
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 36px); }
+  .hero, .role-layout, .steps, .focus-grid { grid-template-columns: 1fr; }
+  .hero { gap: 36px; padding-block: 42px; }
+  h1 { font-size: clamp(36px, 9.8vw, 48px); }
+  .hero-intro { font-size: 16px; }
+  .mission-card { padding: 26px; }
+  .role-section { padding-block: 42px; }
+  .role-layout { gap: 16px; }
+  .focus-section { padding-block: 46px; }
+  .focus-card { padding: 24px; }
+  .approach-section { padding-block: 42px; }
+  .team-section { padding: 26px; }
+  .primary-action { width: 100%; }
+  .site-footer { flex-direction: column; gap: 4px; padding-block: 26px; }
 }
-.intro { margin: 0 0 4px; font-size: 14px; line-height: 20px; font-weight: 500; }
-.account-note { margin: 0 0 20px; color: #6a6a81; font-size: 12px; line-height: 16px; }
-.primary-action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  min-height: 44px;
-  padding: 10px 12px;
-  border: 1px solid rgba(8, 8, 12, .06);
-  border-radius: 8px;
-  background: rgba(8, 8, 12, .05);
-  color: inherit;
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 500;
-}
-.primary-action:hover { background: rgba(8, 8, 12, .09); }
-.primary-action:focus-visible { outline: 3px solid #4285f4; outline-offset: 4px; }
-.primary-action svg { width: 18px; height: 18px; flex-shrink: 0; }
-.security-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(8, 8, 12, .1);
-  color: #6a6a81;
-  font-size: 10px;
-  line-height: 15px;
-}
-.lock { position: relative; width: 10px; height: 9px; flex-shrink: 0; border: 1px solid currentColor; border-radius: 2px; }
-.lock::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: -5px;
-  width: 4px;
-  height: 4px;
-  border: 1px solid currentColor;
-  border-bottom: 0;
-  border-radius: 4px 4px 0 0;
-}
-@media (max-width: 360px) { .access-panel { padding: 20px 16px; } }
