@@ -95,3 +95,8 @@ h3 { font-size: 17px; letter-spacing: -.02em; font-weight: 650; margin: 22px 0 1
   .primary-action { width: 100%; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 14px; padding-block: 26px; }
 }
+
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 22px; }
+.onboarding-section { padding-bottom: 76px; }
+.ownership { display: inline-block; padding: 6px 9px; background: #f0efff; color: #4941bf; border-radius: 6px; font-size: 10px; font-weight: 750; letter-spacing: .09em; }
+@media (max-width: 640px) { .onboarding-section { padding-bottom: 42px; } }
