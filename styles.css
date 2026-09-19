@@ -1,26 +1,29 @@
 :root {
   color-scheme: light;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f6f7fa;
-  color: #182235;
+  background: #f6f7fb;
+  color: #0b0d18;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;
-  --muted: #596477;
-  --accent: #2455d6;
-  --line: #dce2ed;
+  --muted: #62697b;
+  --accent: #5558ff;
+  --line: #e8e9ef;
+  --navy: #101327;
+  --mint: #a7ffcb;
 }
 * { box-sizing: border-box; }
-body { margin: 0; }
+body { margin: 0; background: radial-gradient(ellipse 65% 580px at 82% 6%, #e9e6ff 0%, transparent 78%), #f6f7fb; }
 a { color: inherit; }
 .wrap { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
 .skip-link { position: absolute; top: -80px; left: 16px; z-index: 10; background: white; padding: 12px; }
 .skip-link:focus { top: 12px; }
-a:focus-visible { outline: 3px solid #2455d6; outline-offset: 5px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 .site-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 26px; border-bottom: 1px solid var(--line); }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; color: white; background: #182235; font-size: 14px; font-weight: 750; }
-.brand strong { display: block; font-size: 15px; letter-spacing: .02em; }
-.brand-subtitle { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+.brand-logo { width: 174px; height: auto; display: block; }
+.brand-logo.small { width: 118px; }
+.brand-subtitle { display: block; border-left: 1px solid #d8dae3; padding-left: 14px; margin-left: 2px; color: #484e5d; font-size: 13px; font-weight: 600; }
+.gradient { background: linear-gradient(115deg, var(--accent), #915dff 60%, #2bcba1); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nav-link { font-size: 13px; font-weight: 600; text-decoration: none; padding: 10px 0 10px 12px; }
 .nav-link span { padding-left: 12px; }
 .nav-link:hover, .text-link:hover { color: var(--accent); }
@@ -29,14 +32,14 @@ a:focus-visible { outline: 3px solid #2455d6; outline-offset: 5px; }
 h1 { font-size: clamp(40px, 4.5vw, 62px); letter-spacing: -.05em; line-height: 1.06; margin: 0 0 26px; font-weight: 650; }
 .hero-intro { font-size: 17px; line-height: 1.8; color: var(--muted); margin: 0 0 28px; max-width: 550px; }
 .text-link { display: inline-flex; align-items: center; gap: 16px; font-size: 13px; font-weight: 650; text-decoration: none; padding-block: 8px; }
-.mission-card { border: 1px solid #d7e1f5; border-radius: 20px; background: #eaf0fc; padding: 34px; }
-.mission-symbol { display: inline-grid; place-items: center; width: 48px; height: 48px; font-size: 28px; background: #d9e5ff; border-radius: 14px; color: var(--accent); margin-bottom: 32px; }
-.mission-card .eyebrow { margin-bottom: 12px; }
+.mission-card { border: 1px solid #292b48; border-radius: 24px; background: radial-gradient(ellipse at top right, #33306c, transparent 70%), var(--navy); color: white; padding: 34px; box-shadow: 0 24px 60px #10132712; }
+.mission-symbol { display: block; width: 48px; height: 48px; object-fit: contain; margin-bottom: 32px; }
+.mission-card .eyebrow { margin-bottom: 12px; color: var(--mint); }
 h2 { font-size: clamp(26px, 2.7vw, 34px); letter-spacing: -.035em; line-height: 1.2; font-weight: 600; margin: 0 0 18px; }
 .mission-card h2 { font-size: 29px; }
-.mission-card p:not(.eyebrow) { font-size: 14px; line-height: 1.8; color: #4c5d77; }
-.mission-footer { display: flex; align-items: center; gap: 8px; border-top: 1px solid #cfdcf3; margin-top: 26px; padding-top: 20px; font-size: 11px; color: #43587b; }
-.mission-footer span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.mission-card p:not(.eyebrow) { font-size: 14px; line-height: 1.8; color: #c9cbdf; }
+.mission-footer { display: flex; align-items: center; gap: 8px; border-top: 1px solid #ffffff26; margin-top: 26px; padding-top: 20px; font-size: 11px; color: #dce4e3; }
+.mission-footer span { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); flex-shrink: 0; }
 .role-section { background: white; border-block: 1px solid var(--line); padding-block: 66px; }
 .role-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; }
 .role-copy p { font-size: 15px; line-height: 1.85; margin: 0 0 18px; color: var(--muted); }
@@ -47,23 +50,24 @@ h2 { font-size: clamp(26px, 2.7vw, 34px); letter-spacing: -.035em; line-height: 
 .section-heading > p:last-child:not(.eyebrow) { color: var(--muted); line-height: 1.8; font-size: 15px; }
 .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .focus-card { padding: 28px; background: white; border: 1px solid var(--line); border-radius: 14px; }
-.card-number { color: #778aa9; font-size: 12px; letter-spacing: .06em; }
+.card-number { color: var(--accent); font-size: 12px; letter-spacing: .06em; }
 h3 { font-size: 17px; letter-spacing: -.02em; font-weight: 650; margin: 22px 0 12px; }
 .focus-card p { font-size: 14px; line-height: 1.8; color: var(--muted); margin: 0; }
 .approach-section { border-top: 1px solid var(--line); padding-block: 56px 64px; }
 .steps { list-style: none; counter-reset: step; display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; padding: 0; margin: 0; }
-.steps li { counter-increment: step; border-top: 2px solid #b6c7e9; padding-top: 18px; }
+.steps li { counter-increment: step; border-top: 2px solid #c8c9ff; padding-top: 18px; }
 .steps li::before { content: "0" counter(step); font-size: 12px; font-weight: 650; color: var(--accent); }
 .steps h3 { margin-top: 16px; }
 .steps p { font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0; }
-.team-section { background: #182235; color: white; padding: 36px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
-.team-section .eyebrow { color: #acbfff; margin-bottom: 10px; }
+.team-section { background: var(--navy); color: white; padding: 36px; border-radius: 20px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.team-section .eyebrow { color: var(--mint); margin-bottom: 10px; }
 .team-section h2 { font-size: 26px; margin-bottom: 10px; }
 .team-section p:last-child { color: #c0cbdd; font-size: 14px; line-height: 1.7; margin: 0; }
-.primary-action { display: inline-flex; justify-content: center; align-items: center; gap: 14px; flex-shrink: 0; min-height: 48px; padding: 14px 20px; border-radius: 8px; background: white; color: #182235; text-decoration: none; font-size: 13px; font-weight: 650; }
-.primary-action:hover { background: #e5edff; }
+.primary-action { display: inline-flex; justify-content: center; align-items: center; gap: 14px; flex-shrink: 0; min-height: 48px; padding: 14px 20px; border-radius: 10px; background: var(--mint); color: var(--navy); text-decoration: none; font-size: 13px; font-weight: 650; }
+.primary-action:hover { background: #d5ffe6; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; padding-block: 32px; font-size: 11px; color: var(--muted); line-height: 1.7; }
-.site-footer strong { color: #182235; }
+.site-footer { align-items: center; }
+.footer-brand { display: flex; align-items: center; gap: 16px; }
 @media (max-width: 900px) {
   .hero { gap: 32px; padding-block: 56px; }
   .mission-card { padding: 26px; }
@@ -72,6 +76,10 @@ h3 { font-size: 17px; letter-spacing: -.02em; font-weight: 650; margin: 22px 0 1
   .team-section { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 640px) {
+  .brand { align-items: flex-start; flex-direction: column; gap: 7px; }
+  .brand-logo { width: 148px; }
+  .brand-subtitle { border: 0; padding: 0; margin: 0; font-size: 11px; }
+  .nav-link { font-size: 12px; white-space: nowrap; }
   .wrap { width: calc(100% - 36px); }
   .hero, .role-layout, .steps, .focus-grid { grid-template-columns: 1fr; }
   .hero { gap: 36px; padding-block: 42px; }
@@ -85,5 +93,5 @@ h3 { font-size: 17px; letter-spacing: -.02em; font-weight: 650; margin: 22px 0 1
   .approach-section { padding-block: 42px; }
   .team-section { padding: 26px; }
   .primary-action { width: 100%; }
-  .site-footer { flex-direction: column; gap: 4px; padding-block: 26px; }
+  .site-footer { align-items: flex-start; flex-direction: column; gap: 14px; padding-block: 26px; }
 }
